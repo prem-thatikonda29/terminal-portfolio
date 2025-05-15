@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,6 +53,22 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				terminal: {
+					bg: '#1A1F2C',
+					text: '#EEEEEE',
+					green: '#5FFF87',
+					amber: '#FFBF00',
+					blue: '#5FB2FF',
+					purple: '#AE81FF',
+					prompt: '#5FFF87',
+					command: '#FFFFFF',
+					output: '#BBBBBB',
+					cursor: '#FFFFFF',
+					comment: '#888888',
+					error: '#FF5370',
+					success: '#C3E88D',
+					warning: '#FFCB6B',
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -62,6 +79,9 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			fontFamily: {
+				mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +104,26 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'blink': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0' }
+				},
+				'typing': {
+					from: { width: '0' },
+					to: { width: '100%' }
+				},
+				'fade-in': {
+					from: { opacity: '0' },
+					to: { opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'cursor-blink': 'blink 1s step-end infinite',
+				'typing': 'typing 3.5s steps(40, end)',
+				'fade-in': 'fade-in 0.5s ease-in-out'
 			}
 		}
 	},

@@ -1,42 +1,59 @@
+
 #root {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Add custom scrollbar for a terminal-like feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+::-webkit-scrollbar-track {
+  background: rgba(26, 31, 44, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(95, 255, 135, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(95, 255, 135, 0.5);
+}
+
+/* Ensure the terminal takes up the right amount of space */
+.terminal-body {
+  height: calc(100% - 40px);
+}
+
+/* Add subtle text glow effect for terminal aesthetic */
+.text-terminal-green, 
+.text-terminal-amber, 
+.text-terminal-blue {
+  text-shadow: 0 0 5px currentColor;
+}
+
+/* Animation for command output appearance */
+.command-output {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .terminal-window {
+    font-size: 0.9rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .terminal-body {
+    padding: 1rem;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
