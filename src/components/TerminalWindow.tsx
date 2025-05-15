@@ -1,6 +1,5 @@
-
-import React from 'react';
-import { cn } from '@/lib/utils';
+import React from "react";
+import { cn } from "@/lib/utils";
 
 interface TerminalWindowProps {
   children: React.ReactNode;
@@ -8,10 +7,10 @@ interface TerminalWindowProps {
   className?: string;
 }
 
-export const TerminalWindow: React.FC<TerminalWindowProps> = ({ 
-  children, 
+export const TerminalWindow: React.FC<TerminalWindowProps> = ({
+  children,
   title = "terminal",
-  className
+  className,
 }) => {
   return (
     <div className={cn("terminal-window w-full", className)}>
@@ -22,7 +21,7 @@ export const TerminalWindow: React.FC<TerminalWindowProps> = ({
           <div className="terminal-circle bg-terminal-success"></div>
         </div>
         <div className="text-xs text-terminal-text/70">{title}</div>
-        <div className="w-16"></div> {/* Spacer for balance */}
+        <div className="w-16"></div>
       </div>
       {children}
     </div>
