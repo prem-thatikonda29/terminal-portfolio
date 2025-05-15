@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Terminal from '@/components/Terminal';
+import FloatingIcons from '@/components/FloatingIcons';
 
 const Index = () => {
   const [loaded, setLoaded] = useState(false);
@@ -16,6 +17,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-terminal-bg flex flex-col items-center justify-center p-4 md:p-8">
+      <FloatingIcons />
       <div className={`w-full max-w-5xl transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-terminal-green mb-2">

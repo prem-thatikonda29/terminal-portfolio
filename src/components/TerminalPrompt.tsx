@@ -45,17 +45,24 @@ export const TerminalPrompt: React.FC<TerminalPromptProps> = ({
       {readOnly ? (
         <span className="ml-2 text-terminal-command">{command}</span>
       ) : (
-        <input
-          ref={inputRef}
-          type="text"
-          className="command-input"
-          value={command as string}
-          onChange={onChange}
-          onKeyDown={handleKeyPress}
-          readOnly={readOnly}
-          autoFocus={autoFocus}
-          aria-label="Terminal command input"
-        />
+        <div className="relative inline-flex flex-grow">
+          <input
+            ref={inputRef}
+            type="text"
+            className="command-input caret-transparent"
+            value={command as string}
+            onChange={onChange}
+            onKeyDown={handleKeyPress}
+            readOnly={readOnly}
+            autoFocus={autoFocus}
+            aria-label="Terminal command input"
+          />
+          {/* Custom blinking cursor */}
+          <div className="absolute top-0 left-0 h-full pointer-events-none">
+            <span className="inline-block text-terminal-command whitespace-pre">{command as string}</span>
+            <span className="cursor"></span>
+          </div>
+        </div>
       )}
     </div>
   );

@@ -49,11 +49,11 @@ const Terminal: React.FC<TerminalProps> = ({
     if (!command.trim()) return;
 
     // Add command to history
-    const newHistory = [...history, { type: 'command', content: command }];
+    const newHistory = [...history, { type: 'command' as const, content: command }];
     
     // Process command
     const output = TerminalCommands(command);
-    newHistory.push({ type: 'output', content: output });
+    newHistory.push({ type: 'output' as const, content: output });
     
     setHistory(newHistory);
     setCurrentCommand('');
