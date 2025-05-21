@@ -5,6 +5,23 @@ import { ProjectsSection } from "./sections/ProjectsSection";
 import { ContactSection } from "./sections/ContactSection";
 import { ExperienceSection } from "./sections/ExperienceSection";
 
+// Resume download handler
+const handleResumeDownload = () => {
+  window.open("/resume.pdf", "_blank");
+  return (
+    <div className="text-terminal-success">
+      <p>Downloading resume...</p>
+      <p className="mt-1 text-terminal-output">
+        If the download doesn't start automatically,{" "}
+        <a href="/resume.pdf" download className="text-terminal-blue underline">
+          click here
+        </a>{" "}
+        to download.
+      </p>
+    </div>
+  );
+};
+
 export const TerminalCommands = (command: string) => {
   const cmd = command.trim().toLowerCase();
   const args = cmd.split(" ");
@@ -39,6 +56,10 @@ export const TerminalCommands = (command: string) => {
               touch with me
             </li>
             <li>
+              <span className="text-terminal-green">resume</span> - Download my
+              resume
+            </li>
+            <li>
               <span className="text-terminal-green">clear</span> - Clear the
               terminal
             </li>
@@ -67,6 +88,9 @@ export const TerminalCommands = (command: string) => {
 
     case "contact":
       return <ContactSection />;
+
+    case "resume":
+      return handleResumeDownload();
 
     case "clear":
       return null;
