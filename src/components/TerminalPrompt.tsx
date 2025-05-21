@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { handleTabCompletion } from "./TerminalCommands";
+import { handleTabCompletion } from "../lib/autocomplete";
 
 interface TerminalPromptProps {
   command: string | React.ReactNode;
