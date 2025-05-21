@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { handleTabCompletion } from "./TerminalCommands";
 
 interface TerminalPromptProps {
   command: string | React.ReactNode;
@@ -18,6 +19,7 @@ export const TerminalPrompt: React.FC<TerminalPromptProps> = ({
   autoFocus = true,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const [inputValue, setInputValue] = useState(command as string);
 
   useEffect(() => {
     if (!autoFocus || readOnly) return;
@@ -62,13 +64,42 @@ export const TerminalPrompt: React.FC<TerminalPromptProps> = ({
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && onSubmit) {
       onSubmit(e.currentTarget.value);
+      // Clear the input after command execution
+      setInputValue("");
+      if (onChange) {
+        const syntheticEvent = {
+          target: { value: "" },
+          currentTarget: { value: "" },
+        } as React.ChangeEvent<HTMLInputElement>;
+        onChange(syntheticEvent);
+      }
       if (inputRef.current) {
         inputRef.current.focus();
       }
     }
 
+    if (e.key === "Tab") {
+      e.preventDefault(); // Prevent default tab behavior
+      const completedCommand = handleTabCompletion(e.currentTarget.value);
+      setInputValue(completedCommand);
+      if (onChange) {
+        const syntheticEvent = {
+          target: { value: completedCommand },
+          currentTarget: { value: completedCommand },
+        } as React.ChangeEvent<HTMLInputElement>;
+        onChange(syntheticEvent);
+      }
+    }
+
     if (onKeyDown) {
       onKeyDown(e);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+    if (onChange) {
+      onChange(e);
     }
   };
 
@@ -83,8 +114,8 @@ export const TerminalPrompt: React.FC<TerminalPromptProps> = ({
             ref={inputRef}
             type="text"
             className="command-input caret-transparent"
-            value={command as string}
-            onChange={onChange}
+            value={inputValue}
+            onChange={handleChange}
             onKeyDown={handleKeyPress}
             readOnly={readOnly}
             autoFocus={autoFocus}
@@ -93,7 +124,7 @@ export const TerminalPrompt: React.FC<TerminalPromptProps> = ({
           {/* Custom blinking cursor */}
           <div className="absolute top-0 left-0 h-full pointer-events-none">
             <span className="inline-block text-terminal-command whitespace-pre">
-              {command as string}
+              {inputValue}
             </span>
             <span className="cursor"></span>
           </div>
