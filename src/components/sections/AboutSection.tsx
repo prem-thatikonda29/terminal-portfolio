@@ -1,50 +1,51 @@
 import React from "react";
+import { Scan } from "lucide-react";
 
 export const AboutSection: React.FC = () => {
   return (
     <div className="space-y-4">
       <h2 className="text-xl font-bold text-terminal-green">About Me</h2>
 
-      <div className="glass-panel p-4">
+      <div className="glass-panel py-4 px-6">
         <p className="text-terminal-text">
-          Hey there!, I'm a{" "}
-          <span className="text-terminal-amber">full-stack</span> and{" "}
-          <span className="text-terminal-purple">Ai-agent </span>
-          developer with a focus on creating efficient, user-friendly
-          applications that solve real-world problems.
+          Hey there!, I'm Prem Thatikonda, and I create{" "}
+          <span className="text-terminal-amber">full-stack apps</span> and{" "}
+          <span className="text-terminal-purple">Ai-agents</span> and{" "}
+          <span className="text-terminal-purple">workflows</span>
         </p>
 
-        <p className="text-terminal-text mt-3">
-          My journey began with the classic "Hello, World!" and evolved into
-          building complex web applications, APIs, and applications. I love the
-          challenge of learning new technologies and applying them to create
-          innovative solutions.
+        <p className="text-terminal-text mt-2">
+          It all started with &quot;Hello, World!&quot; &mdash; and me wondering
+          where the semicolon goes (it was Java). Since then, I&apos;ve gone
+          from writing basic code to building full web apps, APIs, and random
+          features that (usually) work. I love playing with new tech &mdash;
+          mostly to avoid fixing old bugs. I&apos;ve broken enough CSS to
+          qualify as a front-end chaos agent and still trust console.log with my
+          life. When I&apos;m not coding, I&apos;m either making games, jamming
+          on my guitar, or sketching whatever pops into my head.
         </p>
 
-        <div className="mt-4 text-terminal-comment">
+        <div className="mt-4 text-terminal-comment pb-2">
           <p className="text-terminal-blue">Quick facts:</p>
-          <ul className="list-disc ml-6 space-y-1 mt-1">
-            <li>
-              Based in:{" "}
-              <span className="text-terminal-amber">Mumbai, India</span>
-            </li>
-            <li>
-              Current focus:{" "}
-              <span className="text-terminal-amber">AI agents</span>
-            </li>
-            <li>
-              Interests:{" "}
-              <span className="text-terminal-amber">
-                UI-development, n8n workflows
-              </span>
-            </li>
-            <li>
-              Education:{" "}
-              <span className="text-terminal-amber">
-                Computer Science, ITM Skills University
-              </span>
-            </li>
-          </ul>
+          <div className="mt-1 flex flex-col gap-2">
+            {[
+              { label: "Based in", value: "Mumbai, India" },
+              { label: "Current focus", value: "AI agents" },
+              { label: "Interests", value: "UI-development, n8n workflows" },
+              {
+                label: "Education",
+                value: "Computer Science, ITM Skills University",
+              },
+            ].map((item, index) => (
+              <div key={index} className="flex items-center gap-2">
+                <Scan size={18} />
+                <p className="m-0 leading-tight">
+                  {item.label}:{" "}
+                  <span className="text-terminal-amber">{item.value}</span>
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
