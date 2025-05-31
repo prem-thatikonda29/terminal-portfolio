@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FileText } from "lucide-react";
+import { FileText, Headset } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export const ContactSection: React.FC = () => {
@@ -37,7 +37,10 @@ export const ContactSection: React.FC = () => {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-bold text-terminal-green">Contact Me</h2>
+      <h2 className="text-xl font-bold text-terminal-green flex gap-2">
+        <Headset />
+        Contact Me
+      </h2>
 
       <div className="glass-panel p-4">
         <div className="flex items-start">

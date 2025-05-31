@@ -1,10 +1,13 @@
 import React from "react";
-import { Scan } from "lucide-react";
+import { Scan, Beer } from "lucide-react";
 
 export const AboutSection: React.FC = () => {
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-bold text-terminal-green">About Me</h2>
+      <h2 className="text-xl font-bold text-terminal-green flex gap-2">
+        <Beer />
+        About Me
+      </h2>
 
       <div className="glass-panel py-4 px-6">
         <p className="text-terminal-text">

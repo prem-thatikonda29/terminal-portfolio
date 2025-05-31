@@ -1,4 +1,5 @@
 import React from "react";
+import { ChartPie } from "lucide-react";
 
 export const SkillsSection: React.FC = () => {
   const skillCategories = [
@@ -81,7 +82,8 @@ export const SkillsSection: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-terminal-green">
+      <h2 className="text-2xl font-bold text-terminal-green flex gap-2">
+        <ChartPie />
         Technical Skills
       </h2>
 
