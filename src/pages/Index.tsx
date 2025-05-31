@@ -3,6 +3,8 @@ import Terminal from "@/components/Terminal";
 import FloatingIcons from "@/components/FloatingIcons";
 import PixelLoader from "@/components/PixelLoader";
 
+import FuzzyText from "../components/FuzzyText";
+
 const Index = () => {
   const [loaded, setLoaded] = useState(false);
 
@@ -34,10 +36,14 @@ const Index = () => {
           loaded ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-terminal-green mb-2">
-            <span className="typing-animation">Prem's Portfolio</span>
-          </h1>
+        <div className="text-center mb-8 flex justify-center pt-2">
+          <FuzzyText
+            baseIntensity={0.2}
+            hoverIntensity={0.5}
+            enableHover={true}
+          >
+            Prem's Portfolio
+          </FuzzyText>
         </div>
         <Terminal className="h-[680px] max-h-[80vh] text-left w-[80vw]" />
         <footer className="mt-8 text-center text-terminal-comment text-sm">
