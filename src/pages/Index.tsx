@@ -7,23 +7,16 @@ const Index = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    // Function to mark content as loaded
     const setPageAsLoaded = () => {
       setLoaded(true);
     };
 
-    // Set up loading detection with multiple approaches
-
-    // 1. Use window load event (most reliable for complete load)
     window.addEventListener("load", setPageAsLoaded);
 
-    // 2. Check if already loaded (for when component mounts after page load)
     if (document.readyState === "complete") {
       setPageAsLoaded();
     }
-
-    // 3. Fallback timer to ensure loader eventually disappears
-    // This ensures users aren't stuck with an infinite loader
+    // Fallback in case the 'load' event doesn't fire
     const fallbackTimer = setTimeout(setPageAsLoaded, 5000);
 
     return () => {

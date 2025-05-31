@@ -40,7 +40,7 @@ export const TerminalCommands = (command: string) => {
             </li>
             <li>
               <span className="text-terminal-green">skills</span> - View my
-              technical skills
+              technical skills and tech-stacks
             </li>
             <li>
               <span className="text-terminal-green">projects</span> - Browse my
