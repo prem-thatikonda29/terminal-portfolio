@@ -9,7 +9,16 @@ export const SkillsSection: React.FC = () => {
     },
     {
       name: "Frontend",
-      skills: ["HTML/CSS", "React", "Redux", "Next.js", "Tailwind CSS"],
+      skills: [
+        "HTML/CSS",
+        "React",
+        "Zustand",
+        "Next.js",
+        "Tailwind CSS",
+        "GSAP",
+        "Framer Motion",
+        "Three.js",
+      ],
     },
     {
       name: "Backend",

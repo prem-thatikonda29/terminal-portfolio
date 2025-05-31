@@ -37,7 +37,7 @@ const Index = () => {
       <FloatingIcons />
       {!loaded && <PixelLoader />}
       <div
-        className={`w-full max-w-5xl transition-opacity duration-500 ${
+        className={`w-full max-w-[80vw] transition-opacity duration-500 ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -46,9 +46,7 @@ const Index = () => {
             <span className="typing-animation">Prem's Portfolio</span>
           </h1>
         </div>
-
-        <Terminal className="h-[600px] max-h-[70vh] text-left" />
-
+        <Terminal className="h-[680px] max-h-[80vh] text-left w-[80vw]" />
         <footer className="mt-8 text-center text-terminal-comment text-sm">
           <p className="mt-2">
             © {new Date().getFullYear()} Prem Thatikonda's Portfolio. All rights
