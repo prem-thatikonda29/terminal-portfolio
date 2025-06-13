@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Terminal from "@/components/Terminal";
 import FloatingIcons from "@/components/FloatingIcons";
 import PixelLoader from "@/components/PixelLoader";
@@ -38,8 +38,8 @@ const Index = () => {
       >
         <div className="text-center mb-8 flex justify-center pt-2">
           <FuzzyText
-            baseIntensity={0.2}
-            hoverIntensity={0.5}
+            baseIntensity={0.1}
+            hoverIntensity={0.2}
             enableHover={true}
           >
             Prem's Portfolio
