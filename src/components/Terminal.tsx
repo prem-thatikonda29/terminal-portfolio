@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { TerminalWindow } from "./TerminalWindow";
@@ -9,6 +10,23 @@ interface TerminalProps {
   className?: string;
   welcomeMessage?: boolean;
 }
+
+const asciiArt = `
+┌─────────────────────────────────────────────────────────────────────┐
+│  ██████╗ ██████╗ ███████╗███╗   ███╗███████╗    ████████╗██╗  ██╗   │
+│  ██╔══██╗██╔══██╗██╔════╝████╗ ████║██╔════╝    ╚══██╔══╝██║  ██║   │
+│  ██████╔╝██████╔╝█████╗  ██╔████╔██║███████╗       ██║   ███████║   │
+│  ██╔═══╝ ██╔══██╗██╔══╝  ██║╚██╔╝██║╚════██║       ██║   ██╔══██║   │
+│  ██║     ██║  ██║███████╗██║ ╚═╝ ██║███████║       ██║   ██║  ██║   │
+│  ╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝       ╚═╝   ╚═╝  ╚═╝   │
+│                                                                     │
+│    ╔═══════════════════════════════════════════════════════════╗    │
+│    ║  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ║    │
+│    ║  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  ║    │
+│    ║  ████████████████████████████████████████████████████████  ║    │
+│    ╚═══════════════════════════════════════════════════════════╝    │
+└─────────────────────────────────────────────────────────────────────┘
+`;
 
 const Terminal: React.FC<TerminalProps> = ({
   className,
@@ -28,14 +46,19 @@ const Terminal: React.FC<TerminalProps> = ({
         {
           type: "output" as const,
           content: (
-            <div className="mb-2">
-              <p className="text-terminal-green font-bold">
-                System reboot successful!
-              </p>
-              <p className="text-terminal-output">
-                Type <span className="text-terminal-amber">'help'</span> to see
-                available commands
-              </p>
+            <div className="mb-4">
+              <pre className="text-terminal-green text-xs leading-tight font-mono whitespace-pre overflow-x-auto">
+                {asciiArt}
+              </pre>
+              <div className="mt-4">
+                <p className="text-terminal-green font-bold">
+                  System reboot successful!
+                </p>
+                <p className="text-terminal-output">
+                  Type <span className="text-terminal-amber">'help'</span> to see
+                  available commands
+                </p>
+              </div>
             </div>
           ),
         },
@@ -69,14 +92,19 @@ const Terminal: React.FC<TerminalProps> = ({
           {
             type: "output" as const,
             content: (
-              <div className="mb-2">
-                <p className="text-terminal-green font-bold">
-                  Terminal cleared
-                </p>
-                <p className="text-terminal-output">
-                  Type <span className="text-terminal-amber">'help'</span> to
-                  see available commands
-                </p>
+              <div className="mb-4">
+                <pre className="text-terminal-green text-xs leading-tight font-mono whitespace-pre overflow-x-auto">
+                  {asciiArt}
+                </pre>
+                <div className="mt-4">
+                  <p className="text-terminal-green font-bold">
+                    Terminal cleared
+                  </p>
+                  <p className="text-terminal-output">
+                    Type <span className="text-terminal-amber">'help'</span> to
+                    see available commands
+                  </p>
+                </div>
               </div>
             ),
           },
